@@ -40,10 +40,10 @@ public class Dotween : MonoBehaviour {
         Player.transform.DOScale(new Vector3(8, 95, 999), duration);
         Player.transform.DOPunchPosition(transform.position, duration, 10, 1, myBool);
         Player.transform.DOPunchScale(transform.position, duration, 10, 1);
-        Player.transform.DOPath(Points, duration, PathType.Linear, PathMode.Full3D, 10, Color.red); __!__
-        Player.transform.DOBlendableMoveBy(Player.transform.position, duration, myBool); __!__
-        Player.transform.DOBlendableRotateBy(Player.transform.position, duration, RotateMode.Fast); __!__
-        Player.transform.DOBlendableScaleBy(Player.transform.position, duration); __!__
+        Player.transform.DOPath(Points, duration, PathType.Linear, PathMode.Full3D, 10, Color.red); 
+        Player.transform.DOBlendableMoveBy(Player.transform.position, duration, myBool); 
+        Player.transform.DOBlendableRotateBy(Player.transform.position, duration, RotateMode.Fast); 
+        Player.transform.DOBlendableScaleBy(Player.transform.position, duration);
         // _______________________ DOTWEEN(Light)__________________________
         // MyLight.DOColor(Color.blue, duration);
         //MyLight.DOIntensity(50, duration);
