@@ -10,7 +10,7 @@ public class Dotween : MonoBehaviour {
 
     public Material MyMat;
     public Light MyLight;
-    public Vector3 Points;
+    public Vector3 []Points;
 
    public Material mymat;
     
