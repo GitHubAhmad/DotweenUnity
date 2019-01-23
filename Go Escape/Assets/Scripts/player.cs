@@ -12,9 +12,11 @@ public class player : MonoBehaviour
 
     
 
-    public  GameObject StartStage;
+    public GameObject StartStage;
     public GameObject c1;
     public GameObject c2;
+
+    public bool finishGame = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,7 @@ public class player : MonoBehaviour
         StartStage = GameObject.FindGameObjectWithTag("StartStage");
         c1 = StartStage.transform.GetChild(0).gameObject;
         c2 = StartStage.transform.GetChild(1).gameObject;
-       
+
     }
 
     // Update is called once per frame
@@ -31,6 +33,7 @@ public class player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            gameObject.transform.parent = null;
             if (Time.timeScale == 0)
             {
                 Time.timeScale = 1;
@@ -53,13 +56,17 @@ public class player : MonoBehaviour
     {
         c1.transform.DOLocalRotate(new Vector3(0, 0, -90), 0.3f).SetEase(Ease.Linear);
         c2.transform.DOLocalRotate(new Vector3(0, 0, 90), 0.3f).SetEase(Ease.Linear);
-        
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Trap")
         {
             Destroy(gameObject);
+        }
+        if(collision.gameObject.tag== "WinStage")
+        {
+            finishGame = true;
         }
     }
 }

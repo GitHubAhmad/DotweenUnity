@@ -5,8 +5,13 @@ using UnityEngine;
 public class CircleTrap : MonoBehaviour
 {
     public float RotateSpeedZ;
+    public float PlayerJumoForceX;
     
-  
+
+   
+
+    player playerScript;
+
     void Update()
     {
         
@@ -16,6 +21,9 @@ public class CircleTrap : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            playerScript = collision.gameObject.GetComponent<player>();
+            playerScript.JumoForceX = PlayerJumoForceX;
+           
             collision.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
         }
     }
