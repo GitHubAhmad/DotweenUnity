@@ -31,6 +31,10 @@ public class GameManager : MonoBehaviour
         //{
         //    WinGame();
         //}
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
     public void SetPlayerPos()
     {

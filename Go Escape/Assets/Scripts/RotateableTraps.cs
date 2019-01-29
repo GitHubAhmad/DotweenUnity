@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class RotateableTraps : MonoBehaviour
 {
@@ -16,67 +17,54 @@ public class RotateableTraps : MonoBehaviour
     player playerScript;
 
     public GameObject PathTarget;
+    
 
     public enum TrapType { None, WithPath};
     public TrapType trapType;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-   
+    public static Rigidbody2D rb;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Rigidbody2D  rb = collision.gameObject.GetComponent<Rigidbody2D>(); 
+        rb = collision.gameObject.GetComponent<Rigidbody2D>();
         if (collision.gameObject.tag == "Player")
         {
             playerScript = collision.gameObject.GetComponent<player>();
             playerScript.JumoForceX = PlayerJumoForceX;
-            collision.gameObject.transform.parent = gameObject.transform;
-            if (CollisionCount > 0) { 
-
-
-
+            collision.gameObject.transform.parent = gameObject.transform;          
+            Debug.Log(rb.gravityScale);
+         
                if (trapType == TrapType.None)
                {
-
-                collision.gameObject.transform.parent = gameObject.transform;
-                Sequence mySequence = DOTween.Sequence();
-             
-                mySequence.Append(transform.DORotate(new Vector3(0, 0, RotateAngle), RotateDuration).SetEase(Ease.Linear));
-                    CollisionCount--;
+                   collision.gameObject.transform.parent = gameObject.transform;
+                   Sequence mySequence = DOTween.Sequence();         
+                   mySequence.Append(transform.DORotate(new Vector3(0, 0, RotateAngle), RotateDuration).SetEase(Ease.Linear));
+                   CollisionCount--;
                }
+            
+           
                else
                {
-                   // rb.isKinematic = true;
-                    Sequence mySequence = DOTween.Sequence();
-                    mySequence.Append(transform.DOMove(PathTarget.transform.position, MoveDuration).SetEase(Ease.Linear));
-                    mySequence.Append(transform.DORotate(new Vector3(0, 0, RotateAngle), RotateDuration).SetEase(Ease.Linear));
-                    //gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-                    CollisionCount--;
-
-                }
-
-            }
-
-
-
-
-
-
-
-
-
-
-
-
+                rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+                  if (CollisionCount > 0)
+                  {
+                      Sequence mySequence = DOTween.Sequence();
+                      mySequence.Append(transform.DOMove(PathTarget.transform.position, MoveDuration).SetEase(Ease.Linear)).AppendCallback(dontFreez);
+                      mySequence.Append(transform.DORotate(new Vector3(0, 0, RotateAngle), RotateDuration).SetEase(Ease.Linear));
+                      CollisionCount--;
+                  }
+                    
+               }
+            
         }
     }
+
+   
+
+    public void dontFreez()
+    {
+        rb.constraints = RigidbodyConstraints2D.None;
+    }
+   
+    
+  
 }
