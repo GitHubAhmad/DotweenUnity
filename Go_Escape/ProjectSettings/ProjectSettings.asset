@@ -611,10 +611,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 0044a9d0-676b-4400-afec-75171ce28971
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: Go_Escape
+  organizationId: jamool
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

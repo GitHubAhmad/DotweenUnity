@@ -32,6 +32,11 @@ public class PanlesManager : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    public void Show()
+    {
+
+        Application.OpenURL("https://www.instagram.com/traffictour/");
+    }
     public void Main_Menu_Tweens()
     {
         Main_menu.SetActive(true);
