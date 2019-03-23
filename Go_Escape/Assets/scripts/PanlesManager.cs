@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
 
 public class PanlesManager : MonoBehaviour
@@ -26,6 +27,11 @@ public class PanlesManager : MonoBehaviour
     public Vector3 circle;
 
     public Sprite a;
+
+    public void Swithch()
+    {
+        SceneManager.LoadScene(1);
+    }
     public void Main_Menu_Tweens()
     {
         Main_menu.SetActive(true);
