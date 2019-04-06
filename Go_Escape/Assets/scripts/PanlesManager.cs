@@ -35,7 +35,7 @@ public class PanlesManager : MonoBehaviour
     public void Show()
     {
 
-        Application.OpenURL("https://www.instagram.com/traffictour/");
+        Application.OpenURL("https://www.instagram.com/jamil_ajam/");
     }
     public void Main_Menu_Tweens()
     {

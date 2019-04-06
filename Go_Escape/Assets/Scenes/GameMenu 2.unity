@@ -1723,8 +1723,8 @@ Camera:
   m_GameObject: {fileID: 608605856}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -1739,7 +1739,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -3847,9 +3847,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level_Parts: {fileID: 1570252084}
   Level_Parts_Home: {fileID: 1794033669}
-  Initial_Level_Parts: {x: -200, y: 230, z: 0}
+  Initial_Level_Parts: {x: -200, y: 240, z: 0}
   Home_new_Pos: -100
-  button: {fileID: 0}
   All_Levels: {fileID: 444976603}
   All_Levels_Objects:
   - {fileID: 201129892}
@@ -4167,10 +4166,10 @@ RectTransform:
   m_Father: {fileID: 1570252085}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1605105, y: 0.94089395}
-  m_AnchorMax: {x: 0.1605105, y: 0.94089395}
-  m_AnchoredPosition: {x: -115, y: 5}
-  m_SizeDelta: {x: 30, y: 30}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -89.99751, y: 226.5}
+  m_SizeDelta: {x: 33.995003, y: 32.999985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1794033670
 MonoBehaviour:
