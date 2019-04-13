@@ -74,15 +74,17 @@ public class RotateableTrap  : MonoBehaviour
                 CollisionCount--;
 
             }
-            else if (trapType == TrapType.None)
-            {               
+           else if (trapType == TrapType.None)
+            {
+                
             }
             else
             {
-                PlayersRigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionX;
                 if (CollisionCount > 0)
                 {
-                   Sequence mySequence = DOTween.Sequence();
+                    PlayersRigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionX;
+
+                    Sequence mySequence = DOTween.Sequence();
                    mySequence.Append(transform.DOMove(Target.transform.position, MoveDuration).SetEase(Ease.Linear)).AppendCallback(Free);
                    mySequence.Append(transform.DORotate(new Vector3(0, 0, RotateAngle), RotateDuration).SetEase(Ease.Linear));
 
