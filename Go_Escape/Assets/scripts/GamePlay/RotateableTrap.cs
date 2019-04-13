@@ -21,7 +21,7 @@ public class RotateableTrap  : MonoBehaviour
 
 
 
-    public enum TrapType { Joint_In_Edges, Joint_In_Middle, With_Target };
+    public enum TrapType { Joint_In_Edges, Joint_In_Middle, With_Target ,None};
     public TrapType trapType;
 
 
@@ -73,6 +73,9 @@ public class RotateableTrap  : MonoBehaviour
                 mySequence.Append(transform.DORotate(new Vector3(0, 0, RotateAngle), RotateDuration).SetEase(Ease.Linear));
                 CollisionCount--;
 
+            }
+            else if (trapType == TrapType.None)
+            {               
             }
             else
             {
