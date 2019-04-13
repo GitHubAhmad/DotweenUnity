@@ -7,7 +7,8 @@ public class Game_Manager : MonoBehaviour
 {
     GameObject Player;
     GameObject StartStage;
-    void Start()
+
+    private void Start()
     {
         SetPlayerPos();
         Time.timeScale = 0;
