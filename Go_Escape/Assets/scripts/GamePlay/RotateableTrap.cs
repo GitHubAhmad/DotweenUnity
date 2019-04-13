@@ -79,11 +79,13 @@ public class RotateableTrap  : MonoBehaviour
             }
             else
             {
-                PlayersRigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionX;
                 if (CollisionCount > 0)
                 {
-                   Sequence mySequence = DOTween.Sequence();
-                   mySequence.Append(transform.DOMove(Target.transform.position, MoveDuration).SetEase(Ease.Linear)).AppendCallback(Free);
+                    PlayersRigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionX;
+
+                    Sequence mySequence = DOTween.Sequence();
+                    playerScript.JumoForceX = PlayerJumoForceX + 1;
+                    mySequence.Append(transform.DOMove(Target.transform.position, MoveDuration).SetEase(Ease.Linear)).AppendCallback(Free);
                    mySequence.Append(transform.DORotate(new Vector3(0, 0, RotateAngle), RotateDuration).SetEase(Ease.Linear));
 
                    CollisionCount--;
@@ -93,6 +95,8 @@ public class RotateableTrap  : MonoBehaviour
     }
     public void Free()
     {
+        playerScript.JumoForceX = PlayerJumoForceX;
         PlayersRigidbody2D.constraints = RigidbodyConstraints2D.None;
+        
     }
 }
